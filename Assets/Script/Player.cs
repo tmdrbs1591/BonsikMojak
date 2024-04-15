@@ -12,6 +12,9 @@ public class Player : MonoBehaviour
     [SerializeField]
     Transform Attackpos;
 
+    [SerializeField]
+    ObjectManager objectManager;
+
 
     void Start()
     {
@@ -47,6 +50,23 @@ public class Player : MonoBehaviour
                     {
                         if (collider != null)
                         {
+                            int ran = Random.Range(0, 10);
+                            if (ran < 4)
+                            {
+                                GameObject attackEffect = objectManager.MakeObj("AttackEffect");
+                                attackEffect.transform.position = collider.transform.position + new Vector3(0.2f, 0.2f, 0);
+                            }
+                           else if (ran < 7)
+                            {
+                                GameObject attackEffect = objectManager.MakeObj("AttackEffect2");
+                                attackEffect.transform.position = collider.transform.position + new Vector3(-0.3f, -0.2f, 0);
+                            }
+                            else if (ran < 10)
+                            {
+                                GameObject attackEffect = objectManager.MakeObj("AttackEffect3");
+                                attackEffect.transform.position = collider.transform.position;
+                            }
+
                             collider.GetComponent<Monster>().TakeDamage(GameManager.instance.Power);
                         }
                     }

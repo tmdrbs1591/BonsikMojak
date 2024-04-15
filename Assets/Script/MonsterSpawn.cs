@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using UnityEngine;
 
 public class MonsterSpawn : MonoBehaviour
 {
+
     [SerializeField]
-    GameObject monsters;
+    ObjectManager objectManager;
 
     void Start()
     {
@@ -17,7 +19,8 @@ public class MonsterSpawn : MonoBehaviour
     {
         if (GameManager.instance.Kill)
         {
-            Instantiate(monsters,transform.position,transform.rotation);
+            GameObject slime = objectManager.MakeObj("enemySlime");
+            slime.transform.position = transform.position;
             GameManager.instance.Kill = false;
         }
     }

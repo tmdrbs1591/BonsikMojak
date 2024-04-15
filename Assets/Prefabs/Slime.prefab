@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -266,7 +266,7 @@ GameObject:
   - component: {fileID: 5231328686242084857}
   - component: {fileID: 919809367494432151}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: HPbar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -539,6 +539,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11fa3d77cdb3daf479f366a808dee216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HPbar: {fileID: 919809367494432151}
   playerPos: {fileID: 0}
   StopDis: 0
   CurHP: 10

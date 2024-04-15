@@ -1,10 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 using static UnityEditor.PlayerSettings;
 
 public class Monster : MonoBehaviour
 {
+    [SerializeField]
+    Slider HPbar;
+
     [SerializeField]
     Transform playerPos;
 
@@ -16,9 +21,11 @@ public class Monster : MonoBehaviour
     [SerializeField]
     float MaxHP;
 
+  
 
-    void Start()
+    void OnEnable()
     {
+        CurHP = MaxHP;
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player != null)
         {
@@ -29,6 +36,8 @@ public class Monster : MonoBehaviour
 
     void Update()
     {
+        HPbar.value = CurHP / MaxHP;
+
         Move();
         Die();
     }
@@ -56,7 +65,7 @@ public class Monster : MonoBehaviour
     {
         if (CurHP <= 0)
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
             GameManager.instance.Battle = false;
             GameManager.instance.Kill = true;   
         }

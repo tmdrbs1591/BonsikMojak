@@ -27,11 +27,11 @@ public class ParallaxScroll : MonoBehaviour
     {
         if (GameManager.instance.Battle)
         {
-            GameManager.instance.curspeed = 0;
+            GameManager.instance.speed = GameManager.instance.stopspeed;
         }
         else
         {
-           GameManager.instance.curspeed = GameManager.instance.speed;
+           GameManager.instance.speed = GameManager.instance.updatespeed;
 
         }
         // Move each layer according to its speed and MapSpeed

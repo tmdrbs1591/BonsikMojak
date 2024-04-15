@@ -7,8 +7,9 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance; 
     public bool Battle = false;
-    public float curspeed;
+    public float updatespeed;
     public float speed;
+    public float stopspeed;
     public float Attackspeed;
     public float Power;
     public bool Kill = true;
